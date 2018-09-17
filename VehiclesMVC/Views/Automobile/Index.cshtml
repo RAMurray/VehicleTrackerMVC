@@ -1,0 +1,85 @@
+﻿@model IEnumerable<VehiclesMVC.Models.Automobile>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach (var item in Model)
+{
+<div class="list-group-item clearfix">
+    <div class="pull-left">
+        <h4 class="list-group-item-heading"> @Html.DisplayFor(modelItem => item.Year)  @Html.DisplayFor(modelItem => item.Make) @Html.DisplayFor(modelItem => item.Model)</h4>
+        <p class="list-group-item-text">@Html.DisplayFor(modelItem => item.VinNumber)</p>
+        <p class="list-group-item-text"><b>@Html.ActionLink("View", "Details", new { id = item.ID })</b></p>
+        <p class="list-group-item-text">
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </p>
+    </div>
+    <span class="pull-right">
+        <img src="@Url.Content(item.ImageURL)" alt="IMAGE" class="img-responsive" style="max-height: 100px;">
+    </span>
+
+</div>
+}
+
+
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VinNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mileage)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VinNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageURL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mileage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            </td>
+        </tr>
+    }
+
+    </table>*@
